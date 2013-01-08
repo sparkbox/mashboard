@@ -1,0 +1,11 @@
+{
+  "SpeakerURI": "/api/speakers.json/Christopher-H-Laco",
+  "Name": "Christopher H. Laco",
+  "Biography": "Chris is currently a Engineer at Within3 in Cleveland, OH. He's been a programmer, webmaster, and all around jack of all trades in the industry for over 16 years in various languages including Perl, Ruby, C#, VB.NET, and remembers what a modem and Mosaic 1.0 looks like. :-)",
+  "TwitterHandle": "@claco",
+  "BlogURL": "http://chrislaco.com",
+  "Sessions": [
+      "/api/sessions.json/Testing-Its-Not-Just-for-Your-Code"
+  ],
+  "LookupId": "Christopher-H-Laco"
+}

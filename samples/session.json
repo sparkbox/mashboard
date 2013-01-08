@@ -1,0 +1,17 @@
+{
+  "Title": "Atomic Scala (Wednesday Full Day)",
+  "Abstract": "This seminar is based on our book Atomic Scala, which takes away the pain of learning by breaking subjects into the smallest chunks we could (we call them \"atoms\"). Even (dedicated) first-time programmers can learn Scala with this book, but the design also makes it the most expedient way for experienced programmers to get started with Scala.\nWe present each Atom (chapter) in the book as a very short lecture, followed by an exercise period. Atomic concepts make learning Scala easy and fun.\nTopics\nScala is an amazing and elegant language. It's also powerful, and overwhelming if you try to absorb it all at once. Our goal is to present the language in small bites that you can quickly grasp, to give you a foundation on which you build more knowledge.\nThis 1-day precompiler is based on our weeklong format. We want you to finish the day feeling strong and ready to learn more about Scala. To achieve this we have selected a subset of topics that, once learned, allow you to create useful and interesting programs; a base from which you can increase your knowledge. We have carefully trimmed away topics that you don't need to know right away (but that you'll be able to acquire more easily from books or more advanced courses).  We’ll send installation instructions prior to CodeMash, so that we can jump right into learning Scala.\n",
+  "Start": "2013-01-09T13:30:00Z",
+  "End": "2013-01-09T22:30:00Z",
+  "Room": "H",
+  "Difficulty": "Beginner",
+  "SpeakerName": "Dianne Marsh",
+  "Technology": "Scala",
+  "URI": "/api/sessions.json/Atomic-Scala-Wednesday-Full-Day",
+  "EventType": "PreCompiler",
+  "SecondarySpeakerName": "Bruce Eckel",
+  "SecondarySpeakerBio": "Bruce Eckel is the author of Thinking in Java and Thinking in C++, and a number of other books on computer programming. He’s been in the computer industry for 30 years, periodically gets frustrated and tries to quit, then something like Scala comes along and offers hope and sucks him back in. He’s given hundreds of presentations around the world and enjoys putting on alternative conferences and events like The Java Posse Roundup. He is currently studying organizational dynamics, trying to find a new way to organize companies so that working together becomes a joy; you can read about his struggles in this arena at Reinventing-Business.com, while his programming work can be found through www.MindViewInc.com.",
+    "Id": "38a02352-c5dd-4289-9b5e-ea0ac9770143",
+  "SessionLookupId": "Atomic-Scala-Wednesday-Full-Day",
+  "SpeakerURI": "/api/speakers.json/Dianne-Marsh"
+}
