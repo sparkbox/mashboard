@@ -1,0 +1,15 @@
+<section class="row-fluid">
+  <div class="row">
+    {{#each controller}}
+      {{#linkTo "day" this}}
+        <div class="span6">{{weekDay}}</div>
+      {{/linkTo}}
+    {{/each}}
+    <div class="span12">
+      {{length}} Days Loaded
+    </div>
+  </div>
+  <footer>
+    {{sessions.length}} Session Loaded
+  </footer>
+</section>

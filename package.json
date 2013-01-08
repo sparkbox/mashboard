@@ -1,0 +1,32 @@
+{
+  "author": "Jeremy Mack",
+  "name": "code_masher",
+  "description": "Mashing the Code Mash website.",
+  "version": "0.0.1",
+  "homepage": "sparkbox.github.com/code_masher",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.10 || 0.8 || 0.9"
+  },
+  "scripts": {
+    "start": "brunch watch --server"
+  },
+  "dependencies": {
+    "javascript-brunch": ">= 1.0 < 1.5",
+    "coffee-script-brunch": "> 1.0 < 1.5",
+    "css-brunch": ">= 1.0 < 1.5",
+    "uglify-js-brunch": ">= 1.0 < 1.5",
+    "clean-css-brunch": ">= 1.0 < 1.5",
+    "ember-handlebars-brunch": "git://github.com/mutewinter/ember-handlebars-brunch.git",
+    "auto-reload-brunch": "> 1.0 < 1.5",
+    "stylus-brunch": ">= 1.0 < 1.5"
+  },
+  "devDependencies": {
+    "mocha": "0.14.0",
+    "expect.js": "0.1.2",
+    "express": "2.5.8"
+  }
+}
