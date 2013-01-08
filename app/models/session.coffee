@@ -1,5 +1,4 @@
 App.Session = DS.Model.extend
-
   title: DS.attr('string')
   abstract: DS.attr('string')
   start: DS.attr('date')

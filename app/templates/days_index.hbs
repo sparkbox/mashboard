@@ -15,11 +15,15 @@
         {{/if}}
         <span class="label label-info">{{eventType}}</span>
         <h3>{{title}}</h3>
+        <div class="speaker">
+          <tr>
+            {{#linkTo "speaker" this}}
+              <img {{bindAttr src="speaker.avatarUrl"}}/> {{speakerName}}
+            {{/linkTo}}
+          </tr>
+        </div>
         <table class="table table-condensed">
           <tbody>
-            <tr>
-              <td>Speaker</td><td>{{speakerName}}</td>
-            </tr>
             <tr>
               <td>Room</td><td>{{room}}</td>
             </tr>

@@ -9,7 +9,7 @@ window.App = require('app')
 require 'router'
 
 # The order in which each module should be required.
-folderOrder = 'serializers adapters models data helpers templates controllers views'.w()
+folderOrder = 'models serializers adapters data helpers templates controllers views'.w()
 # Programatically require the modules in each sub-folder so we don't have to do
 # it explicitly. This sort of defeats the purpose of AMD, but I don't care.
 folderOrder.forEach (folder) ->

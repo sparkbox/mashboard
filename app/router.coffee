@@ -5,6 +5,10 @@ App.Router.map (match) ->
     match('/').to('daysIndex')
     match('/:day_id').to('day')
   )
+  match('/speakers').to('speakers', (match) ->
+    match('/').to('speakersIndex')
+    match('/:day_id').to('speaker')
+  )
 
 App.IndexRoute = Ember.Route.extend
   redirect: ->
@@ -20,3 +24,4 @@ App.DaysIndexRoute = Ember.Route.extend
   setupController: (controller, model) ->
     controller.set('content', model)
     controller.set('sessions', App.Session.find())
+    controller.set('speakers', App.Speaker.find())
