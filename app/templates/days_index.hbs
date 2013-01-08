@@ -23,6 +23,14 @@
             <tr>
               <td>Room</td><td>{{room}}</td>
             </tr>
+            <tr>
+              <td>Time</td><td>{{dayLabel}} at {{timeLabel}}</td>
+            </tr>
+            {{#if length}}
+              <tr>
+                <td>Length</td><td>{{lengthLabel}}</td>
+              </tr>
+            {{/if}}
           </tbody>
         </table>
       </div>
