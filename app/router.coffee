@@ -19,3 +19,4 @@ App.DaysIndexRoute = Ember.Route.extend
   model: (router) -> @controllerFor('days').get('content')
   setupController: (controller, model) ->
     controller.set('content', model)
+    controller.set('sessions', App.Session.find())

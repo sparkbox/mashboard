@@ -12,3 +12,11 @@ App.Session = DS.Model.extend
   eventType: DS.attr('string')
   sessionLookupId: DS.attr('string')
   speakerURI: DS.attr('string')
+
+  difficultyLabelClass: (->
+    switch @get('difficulty')
+      when 'Beginner' then 'label-success'
+      when 'Intermediate' then 'label-warning'
+      when 'Advanced' then 'label-important'
+      else ''
+  ).property('difficulty')

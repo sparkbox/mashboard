@@ -9,6 +9,28 @@
       {{length}} Days Loaded
     </div>
   </div>
+  <section class="sessions">
+    {{#each sessions}}
+      <div class="row well">
+        <span {{bindAttr class=":label difficultyLabelClass"}}>{{difficulty}}</span>
+        {{#if technology}}
+          <span class="label label-inverse">{{technology}}</span>
+        {{/if}}
+        <span class="label label-info">{{eventType}}</span>
+        <h3>{{title}}</h3>
+        <table class="table table-condensed">
+          <tbody>
+            <tr>
+              <td>Speaker</td><td>{{speakerName}}</td>
+            </tr>
+            <tr>
+              <td>Room</td><td>{{room}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/each}}
+  </section>
   <footer>
     {{sessions.length}} Session Loaded
   </footer>

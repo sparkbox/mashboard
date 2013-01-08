@@ -5,18 +5,11 @@
 # in those files explicitly requiring it.
 window.App = require('app')
 
-App.Store = DS.Store.extend
-  revision: 11
-  adapter: DS.RESTAdapter.create
-    namespace: 'data'
-
-
 # The router doesn't live in a folder, so we require it explicitly.
 require 'router'
 
 # The order in which each module should be required.
-folderOrder = 'models data helpers templates controllers views'.w()
-
+folderOrder = 'serializers adapters models data helpers templates controllers views'.w()
 # Programatically require the modules in each sub-folder so we don't have to do
 # it explicitly. This sort of defeats the purpose of AMD, but I don't care.
 folderOrder.forEach (folder) ->
@@ -24,5 +17,10 @@ folderOrder.forEach (folder) ->
   window.moduleNames.filter((moduleName) ->
     new RegExp("^#{folder}").test(moduleName)
   ).forEach((matchingModule) -> require(matchingModule))
+
+App.Store = DS.Store.extend
+  revision: 11
+  adapter: App.CodeMashAdapter.create
+    namespace: 'data'
 
 App.initialize()
