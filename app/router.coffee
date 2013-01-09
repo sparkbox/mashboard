@@ -23,5 +23,18 @@ App.DaysIndexRoute = Ember.Route.extend
   model: (router) -> @controllerFor('days').get('content')
   setupController: (controller, model) ->
     controller.set('content', model)
+    controller.set('speakers', App.Speaker.find())
+    controller.set('sessions', App.Session.find())
+
+App.SpeakersRoute = Ember.Route.extend
+  setupController: (controller, model) ->
+    controller.set('content', model)
     controller.set('sessions', App.Session.find())
     controller.set('speakers', App.Speaker.find())
+
+App.SpeakersIndexRoute = Ember.Route.extend
+  model: (router) -> @controllerFor('days').get('content')
+  setupController: (controller, model) ->
+    controller.set('content', model)
+    controller.set('sessions', @controllerFor('speakers').get('sessions'))
+    controller.set('sessions', @controllerFor('speakers').get('speakers'))

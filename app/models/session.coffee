@@ -58,3 +58,7 @@ App.Session = DS.Model.extend
   lengthLabel: (->
     moment.duration(@get('length'), "seconds").humanize()
   ).property('length')
+
+  speaker: (->
+    App.Speaker.find(@get('speakerURI').split('/').get('lastObject'))
+  ).property('speakerURI')
