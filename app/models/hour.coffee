@@ -7,7 +7,11 @@ App.Hour = DS.Model.extend
   ).property('time')
 
   timeLabel: (->
-    @get('timeMoment').format('dddd, MMMM Do YYYY, h:mm:ss a')
+    @get('timeMoment').format('dddd, MMMM Do YYYY, h:mma')
+  ).property('timeMoment')
+
+  shortTimeLabel: (->
+    @get('timeMoment').format('h:mma')
   ).property('timeMoment')
 
   hour: (->
