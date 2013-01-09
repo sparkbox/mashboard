@@ -1,4 +1,11 @@
 <section class="sessions">
+  <span>
+    <div class="alert alert-info clearfix">
+      <span class="pull-right">
+        Showing {{sessions.length}} Sessions
+      </span>
+    </div>
+  </span>
   {{#each sessions}}
     <div class="row well">
       <span {{bindAttr class=":label difficultyLabelClass"}}>{{difficulty}}</span>
@@ -33,5 +40,4 @@
   {{/each}}
 </section>
 <footer>
-  {{sessions.length}} Session Loaded
 </footer>
