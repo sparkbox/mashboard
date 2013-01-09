@@ -37,12 +37,6 @@ App.Day = DS.Model.extend
       sortProperties: ['hour']
   ).property('sessions')
 
-  sortedHours: (->
-    Ember.ArrayController.create
-      content: @get('hours')
-      sortProperties: ['hour']
-  ).property('hours')
-
 App.Day.reopenClass
   daysData: [
     {id: 'tuesday', date: '2013-01-08T00:00:00+00:00'}
