@@ -4,7 +4,9 @@
     <span class="label label-inverse">{{technology}}</span>
   {{/if}}
   <span class="label label-info">{{eventType}}</span>
-  <h3>{{title}}</h3>
+  {{#linkTo "session" this}}
+    <h3>{{title}}</h3>
+  {{/linkTo}}
   <div>
     {{#linkTo "speaker" speaker}}
       <img {{bindAttr src="speaker.avatarURL"}} class="img-circle
