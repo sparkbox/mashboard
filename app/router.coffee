@@ -42,6 +42,10 @@ App.HomeRoute = Ember.Route.extend
 
 App.DayRoute = Ember.Route.extend
   setupController: (controller, model) ->
+    # Using global App object is bad to track this state, but it's the only
+    # way I've found to do it so far.
+    App.set('currentDay', model)
+
     controller.set('content', model)
     allSessions = @controllerFor('index').get('sessions')
     filteredSessions = allSessions.filter((session) ->

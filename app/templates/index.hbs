@@ -1,10 +1,10 @@
 <section class="row-fluid">
   <div class="row">
+    <ul class="nav nav-pills nav-stacked">
     {{#each days}}
-      {{#linkTo "day" this}}
-        <div class="span6">{{weekDay}}</div>
-      {{/linkTo}}
+      {{view App.DayListItemView contentBinding="this" tagName="li"}}
     {{/each}}
+    </ul>
   </div>
 </section>
 
