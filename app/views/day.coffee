@@ -1,1 +1,2 @@
-App.DayView = Ember.View.extend()
+App.DayView = Ember.View.extend
+  templateName: 'day'

@@ -50,7 +50,6 @@ App.IndexRoute = Ember.Route.extend
 App.HomeRoute = Ember.Route.extend
   setupController: (controller, model) ->
     controller.set('days', @controllerFor('index').get('days'))
-    controller.set('sessions', @controllerFor('index').get('sessions'))
 
 App.DayRoute = Ember.Route.extend
   exit: -> App.set('currentDay', null)
