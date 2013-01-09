@@ -17,6 +17,32 @@ App.Day = DS.Model.extend
 
     unixTime = moment(date).unix()
     unixTime > startOfDay.unix() and unixTime < endOfDay.unix()
+
+  hours: (->
+    hours = @get('sessions').reduce((hours, session) ->
+      return hours unless session.get('start')
+      hour = hours.findProperty('hour', session.get('startMoment').hours())
+      if hour
+        hour.get('sessions').pushObject(session)
+      else
+        hour = App.Hour.createRecord
+          time: session.get('start')
+        hour.get('sessions').pushObject(session)
+        hours.pushObject hour
+
+      hours
+    [])
+    Ember.ArrayController.create
+      content: hours
+      sortProperties: ['hour']
+  ).property('sessions')
+
+  sortedHours: (->
+    Ember.ArrayController.create
+      content: @get('hours')
+      sortProperties: ['hour']
+  ).property('hours')
+
 App.Day.reopenClass
   daysData: [
     {id: 'tuesday', date: '2013-01-08T00:00:00+00:00'}

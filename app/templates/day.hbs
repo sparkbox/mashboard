@@ -1,1 +1,10 @@
-{{view App.GroupedSessionsView}}
+{{#each hours}}
+  <div class="hour">
+    <div class="alert">
+      <strong>{{timeLabel}}</strong>
+    </div>
+  </div>
+  {{#each sessions}}
+    {{view App.SessionView}}
+  {{/each}}
+{{/each}}

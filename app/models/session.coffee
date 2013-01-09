@@ -27,7 +27,7 @@ App.Session = DS.Model.extend
     moment(@get('start')).format('dddd')
   ).property('start')
 
-  momentStart: (->
+  startMoment: (->
     start = @get('start')
     if Ember.isEmpty(start)
       null
@@ -35,7 +35,7 @@ App.Session = DS.Model.extend
       moment start
   ).property('start')
 
-  momentEnd: (->
+  endMoment: (->
     end = @get('end')
     if Ember.isEmpty(end)
       null
@@ -45,15 +45,15 @@ App.Session = DS.Model.extend
 
   timeLabel: (->
     label = ''
-    label += @get('momentStart').format(@dateFomat) if @get('momentStart')
-    label += " - #{@get('momentEnd').format(@dateFomat)} "if @get('momentEnd')
+    label += @get('startMoment').format(@dateFomat) if @get('startMoment')
+    label += " - #{@get('endMoment').format(@dateFomat)} "if @get('endMoment')
     label
-  ).property('momentStart', 'momentEnd')
+  ).property('startMoment', 'endMoment')
 
   length: (->
-    return false unless @get('momentStart') and @get('momentEnd')
-    seconds = @get('momentEnd').unix() - @get('momentStart').unix()
-  ).property('momentStart', 'momentEnd')
+    return false unless @get('startMoment') and @get('endMoment')
+    seconds = @get('endMoment').unix() - @get('startMoment').unix()
+  ).property('startMoment', 'endMoment')
 
   lengthLabel: (->
     moment.duration(@get('length'), "seconds").humanize()
