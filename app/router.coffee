@@ -32,6 +32,13 @@ App.IndexRoute = Ember.Route.extend
       # TODO Replace this with proper lifecycle hooks for querying the models.
       setTimeout(=>
         App.set('loadedData', true)
+
+        # Add the sessions to the day they occur.
+        sessions.forEach (session) ->
+          days.forEach (day) ->
+            if day.containsDate(session.get('start'))
+              day.get('sessions').pushObject(session)
+
         @controllerFor('index').set('days', days)
         @controllerFor('index').set('sessions', sessions)
         @controllerFor('index').set('speakers', speakers)
@@ -53,12 +60,6 @@ App.DayRoute = Ember.Route.extend
     App.set('currentDay', model)
 
     controller.set('content', model)
-    allSessions = @controllerFor('index').get('sessions')
-    filteredSessions = allSessions.filter((session) ->
-      model.containsDate(session.get('start'))
-    )
-    controller.set('sessions', filteredSessions)
-    controller.set('speakers', @controllerFor('index').get('speakers'))
 
 # Without this route we clobber the session by automatically rendering the
 # sessions template

@@ -1,1 +1,6 @@
-{{#linkTo "day" this}}{{weekDay}}{{/linkTo}}
+{{#linkTo "day" this}}
+  {{weekDayLabel}}
+  <span class="badge pull-right">
+    {{sessions.length}} {{pluralize sessions}}
+  </span>
+{{/linkTo}}

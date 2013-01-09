@@ -1,5 +1,5 @@
 Ember.Handlebars.registerBoundHelper('pluralize', (value, options) ->
-  if value?
+  if value? and value.get('firstObject.constructor')?
     modelName = value.get('firstObject.constructor')
       .toString()
       .split('.')

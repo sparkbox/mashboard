@@ -1,11 +1,12 @@
 App.Day = DS.Model.extend
   date: DS.attr('date')
+  sessions: DS.hasMany('App.Session')
 
   momentDate: (->
     moment.utc(@get('date'))
   ).property('date')
 
-  weekDay: (->
+  weekDayLabel: (->
     @get('momentDate').format('dddd')
   ).property('date')
 
