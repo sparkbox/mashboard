@@ -16,19 +16,18 @@ App.Speaker = DS.Model.extend
   ).property('twitterUserName')
 
   avatarURL: (->
-    "http://avatars.io/twitter/#{@get('twitterUserName')}"
-  ).property('twitterUserName')
-
-  avatarURLWithBackup: (->
     if @get('hasTwitterHandle')
-      @get('avatarURL')
+      "http://avatars.io/twitter/#{@get('twitterUserName')}"
     else
       "images/codemash_bw.png"
   ).property('twitterUserName', 'hasTwitterHandle')
 
   mediumAvatarURL: (->
-    "#{@get('avatarURL')}?size=medium"
-  ).property('avatarURL')
+    if @get('hasTwitterHandle')
+      "http://avatars.io/twitter/#{@get('twitterUserName')}?size=medium"
+    else
+      "images/codemash_bw_medium.png"
+  ).property('twitterUserName', 'hasTwitterHandle')
 
   hasTwitterHandle: (->
     not Ember.isEmpty(@get('twitterHandle'))
