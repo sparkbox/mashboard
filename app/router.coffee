@@ -14,7 +14,7 @@ App.Router.map (match) ->
 
     match('/speakers').to('speakers', (match) ->
       match('/').to('speakersIndex')
-      match('/:day_id').to('speaker')
+      match('/:speaker_id').to('speaker')
     )
   )
 
@@ -27,6 +27,8 @@ App.IndexRoute = Ember.Route.extend
 
     deferred = Ember.Object.createWithMixins(Ember.DeferredMixin)
 
+    # An artifical timeout to ensure all models have loaded.
+    # TODO Replace this with proper lifecycle hooks for querying the models.
     setTimeout(=>
       @controllerFor('index').set('days', days)
       @controllerFor('index').set('sessions', sessions)
@@ -54,7 +56,7 @@ App.DayRoute = Ember.Route.extend
     controller.set('sessions', filteredSessions)
     controller.set('speakers', @controllerFor('index').get('speakers'))
 
-App.SpeakersIndexRoute = Ember.Route.extend
-  setupController: (controller, model) ->
-    controller.set('sessions', @controllerFor('index').get('sessions'))
-    controller.set('speakers', @controllerFor('index').get('speakers'))
+App.SpeakerRoute = Ember.Route.extend
+  model: (params) ->
+    speakers = @controllerFor('index').get('speakers')
+    speaker = speakers.findProperty('id', params.speaker_id)

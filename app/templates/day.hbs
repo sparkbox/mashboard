@@ -7,36 +7,7 @@
     </div>
   </span>
   {{#each sessions}}
-    <div class="row well">
-      <span {{bindAttr class=":label difficultyLabelClass"}}>{{difficulty}}</span>
-      {{#if technology}}
-        <span class="label label-inverse">{{technology}}</span>
-      {{/if}}
-      <span class="label label-info">{{eventType}}</span>
-      <h3>{{title}}</h3>
-      <div class="speaker">
-        <tr>
-          {{#linkTo "speaker" speaker}}
-            <img {{bindAttr src="speaker.avatarUrl"}}/> {{speakerName}}
-          {{/linkTo}}
-        </tr>
-      </div>
-      <table class="table table-condensed">
-        <tbody>
-          <tr>
-            <td>Room</td><td>{{room}}</td>
-          </tr>
-          <tr>
-            <td>Time</td><td>{{dayLabel}} at {{timeLabel}}</td>
-          </tr>
-          {{#if length}}
-            <tr>
-              <td>Length</td><td>{{lengthLabel}}</td>
-            </tr>
-          {{/if}}
-        </tbody>
-      </table>
-    </div>
+    {{view App.SessionView}}
   {{/each}}
 </section>
 <footer>

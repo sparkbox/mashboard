@@ -3,3 +3,14 @@
 <p>
  {{biography}}
 </p>
+<ul class="nav nav-list">
+  <li class="nav-header">Speaking in {{loadedSessions.length}} {{view.sessionsText}}</li>
+  {{#each loadedSessions}}
+    <li>
+      {{#linkTo "session" this}}
+        {{title}}
+        {{template session_labels}}
+      {{/linkTo}}
+    </li>
+  {{/each}}
+</ul>

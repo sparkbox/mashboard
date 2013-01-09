@@ -10,3 +10,4 @@ App.Speaker = DS.Model.extend
   twitterURL: (->
     "http://twitter.com/#{@get('twitterHandle')}"
   ).property('twitterHandle')
+
