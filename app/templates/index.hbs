@@ -1,5 +1,5 @@
 <section class="row-fluid">
-  <div class="row">
+  <div class="span12">
     <ul class="nav nav-pills nav-stacked">
     {{#each days}}
       {{view App.DayListItemView contentBinding="this" tagName="li"}}
@@ -10,6 +10,6 @@
 
 <hr/>
 
-<section class="body">
+<section class="row-fluid">
   {{outlet}}
 </section>
