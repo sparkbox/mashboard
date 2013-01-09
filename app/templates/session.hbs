@@ -29,4 +29,21 @@
       {{/if}}
     </tbody>
   </table>
+  {{#if hasAbstract}}
+    {{#if view.showAbstract}}
+      <p>
+        {{abstract}}
+      </p>
+      <a href="#" {{action "clickedShowAbstract" target="view"}}>
+        hide
+      </a>
+    {{else}}
+      {{shortenedAbstract}}{{#if hasMoreAbstract}}...{{/if}}
+      {{#if hasMoreAbstract}}
+        <a href="#" {{action "clickedShowAbstract" target="view"}}>
+          more
+        </a>
+      {{/if}}
+    {{/if}}
+  {{/if}}
 </div>

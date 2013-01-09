@@ -12,7 +12,9 @@ App.Session = DS.Model.extend
   sessionLookupId: DS.attr('string')
   speakerURI: DS.attr('string')
 
+  # Constants
   dateFomat: 'h:mma'
+  abstractCharacterLimit: 150
 
   difficultyLabelClass: (->
     switch @get('difficulty')
@@ -62,3 +64,15 @@ App.Session = DS.Model.extend
   speaker: (->
     App.Speaker.find(@get('speakerURI').split('/').get('lastObject'))
   ).property('speakerURI')
+
+  shortenedAbstract: (->
+    @get('abstract')?.slice(0, @abstractCharacterLimit)
+  ).property('abstract')
+
+  hasMoreAbstract: (->
+    @get('abstract.length') > @abstractCharacterLimit
+  ).property('abstract')
+
+  hasAbstract: (->
+    not Ember.isEmpty @get('abstract')
+  ).property('abstract')
