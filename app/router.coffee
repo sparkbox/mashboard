@@ -1,40 +1,56 @@
 # Public: The main application router.
 App.Router.map (match) ->
-  match('/').to('index')
-  match('/days').to('days', (match) ->
-    match('/').to('daysIndex')
-    match('/:day_id').to('day')
-  )
-  match('/speakers').to('speakers', (match) ->
-    match('/').to('speakersIndex')
-    match('/:day_id').to('speaker')
+  match('/').to('index', (match) ->
+    match('/').to('home')
+
+    match('/days').to('days', (match) ->
+      match('/:day_id').to('day')
+    )
+
+    match('/sessions').to('sessions', (match) ->
+      match('/').to('sessionsIndex')
+      match('/:session_id').to('session')
+    )
+
+    match('/speakers').to('speakers', (match) ->
+      match('/').to('speakersIndex')
+      match('/:day_id').to('speaker')
+    )
   )
 
 App.IndexRoute = Ember.Route.extend
-  redirect: ->
-    @transitionTo('daysIndex')
-
-App.DaysRoute = Ember.Route.extend
   model: ->
-    App.Day.daysData.map (dayData) ->
+    sessions = App.Session.find()
+    speakers = App.Speaker.find()
+    days = App.Day.daysData.map (dayData) ->
       App.Day.createRecord(dayData)
 
-App.DaysIndexRoute = Ember.Route.extend
-  model: (router) -> @controllerFor('days').get('content')
-  setupController: (controller, model) ->
-    controller.set('content', model)
-    controller.set('speakers', App.Speaker.find())
-    controller.set('sessions', App.Session.find())
+    deferred = Ember.Object.createWithMixins(Ember.DeferredMixin)
 
-App.SpeakersRoute = Ember.Route.extend
+    setTimeout(=>
+      @controllerFor('index').set('days', days)
+      @controllerFor('index').set('sessions', sessions)
+      @controllerFor('index').set('speakers', speakers)
+      deferred.resolve()
+    , 300)
+
+    deferred
+
+App.HomeRoute = Ember.Route.extend
+  setupController: (controller, model) ->
+    controller.set('days', @controllerFor('index').get('days'))
+
+App.DayRoute = Ember.Route.extend
   setupController: (controller, model) ->
     controller.set('content', model)
-    controller.set('sessions', App.Session.find())
-    controller.set('speakers', App.Speaker.find())
+    allSessions = @controllerFor('index').get('sessions')
+    filteredSessions = allSessions.filter((session) ->
+      session.isSameDay(model.get('moment'))
+    )
+    controller.set('sessions', filteredSessions)
+    controller.set('speakers', @controllerFor('index').get('speakers'))
 
 App.SpeakersIndexRoute = Ember.Route.extend
-  model: (router) -> @controllerFor('days').get('content')
   setupController: (controller, model) ->
-    controller.set('content', model)
-    controller.set('sessions', @controllerFor('speakers').get('sessions'))
-    controller.set('sessions', @controllerFor('speakers').get('speakers'))
+    controller.set('sessions', @controllerFor('index').get('sessions'))
+    controller.set('speakers', @controllerFor('index').get('speakers'))

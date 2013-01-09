@@ -1,0 +1,13 @@
+<section class="row-fluid">
+  <div class="row">
+    {{#each days}}
+      {{#linkTo "day" this}}
+        <div class="span6">{{weekDay}}</div>
+      {{/linkTo}}
+    {{/each}}
+  </div>
+</section>
+
+<section class="body">
+  {{outlet}}
+</section>
