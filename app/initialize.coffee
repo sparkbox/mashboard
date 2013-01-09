@@ -21,6 +21,6 @@ folderOrder.forEach (folder) ->
 App.Store = DS.Store.extend
   revision: 11
   adapter: App.CodeMashAdapter.create
-    namespace: 'data'
+    namespace: 'code_masher/data'
 
 App.initialize()
