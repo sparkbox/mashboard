@@ -55,7 +55,7 @@ App.DayRoute = Ember.Route.extend
     controller.set('content', model)
     allSessions = @controllerFor('index').get('sessions')
     filteredSessions = allSessions.filter((session) ->
-      session.isSameDay(model.get('moment'))
+      model.containsDate(session.get('start'))
     )
     controller.set('sessions', filteredSessions)
     controller.set('speakers', @controllerFor('index').get('speakers'))

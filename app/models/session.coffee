@@ -62,15 +62,3 @@ App.Session = DS.Model.extend
   speaker: (->
     App.Speaker.find(@get('speakerURI').split('/').get('lastObject'))
   ).property('speakerURI')
-
-
-  # ------------------------
-  # Functios
-  # ------------------------
-  isSameDay: (moment) ->
-    startOfDay = moment.clone().hours(0).minutes(0).seconds(0)
-    endOfDay = moment.clone().hours(23).minutes(59).seconds(59)
-
-    unixTime = @get('momentStart').unix()
-
-    unixTime > startOfDay.unix() and unixTime < endOfDay.unix()
