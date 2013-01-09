@@ -7,7 +7,29 @@ App.Speaker = DS.Model.extend
   lookupId: DS.attr('string')
   sessions: DS.hasMany('App.Session')
 
-  twitterURL: (->
-    "http://twitter.com/#{@get('twitterHandle')}"
+  twitterUserName: (->
+    @get('twitterHandle')?.replace(/^@/, '')
   ).property('twitterHandle')
 
+  twitterURL: (->
+    "http://twitter.com/#{@get('twitterUserName')}"
+  ).property('twitterUserName')
+
+  avatarURL: (->
+    "http://avatars.io/twitter/#{@get('twitterUserName')}"
+  ).property('twitterUserName')
+
+  avatarURLWithBackup: (->
+    if @get('hasTwitterHandle')
+      @get('avatarURL')
+    else
+      "images/codemash_bw.png"
+  ).property('twitterUserName', 'hasTwitterHandle')
+
+  mediumAvatarURL: (->
+    "#{@get('avatarURL')}?size=medium"
+  ).property('avatarURL')
+
+  hasTwitterHandle: (->
+    not Ember.isEmpty(@get('twitterHandle'))
+  ).property('twitterHandle')

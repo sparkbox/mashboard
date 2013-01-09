@@ -1,5 +1,17 @@
-<h1>{{name}}</h1>
-<a {{bindAttr href="twitterURL"}}>{{twitterHandle}}</a>
+<div class="row-fluid">
+  {{#if hasTwitterHandle}}
+    <img {{bindAttr src="mediumAvatarURL"}} class="img-circle pull-left speaker-avatar-medium">
+  {{/if}}
+  <h1 class="speaker-name">{{name}}</h1>
+  {{#if hasTwitterHandle}}
+    <div>
+      <a {{bindAttr href="twitterURL"}} class="twitter-user-name">
+        @{{twitterUserName}}
+      </a>
+    </div>
+  {{/if}}
+</div>
+<div class="row-fluid">
 <p>
  {{biography}}
 </p>
@@ -14,3 +26,4 @@
     </li>
   {{/each}}
 </ul>
+</div>

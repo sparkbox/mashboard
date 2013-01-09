@@ -5,12 +5,12 @@
   {{/if}}
   <span class="label label-info">{{eventType}}</span>
   <h3>{{title}}</h3>
-  <div class="speaker">
-    <tr>
-      {{#linkTo "speaker" speaker}}
-        <img {{bindAttr src="speaker.avatarUrl"}}/> {{speakerName}}
-      {{/linkTo}}
-    </tr>
+  <div>
+    {{#linkTo "speaker" speaker}}
+      <img {{bindAttr src="speaker.avatarURLWithBackup"}} class="img-circle
+      speaker-avatar-small">
+      <span class="speaker-name-small">{{speakerName}}</span>
+    {{/linkTo}}
   </div>
   <table class="table table-condensed">
     <tbody>
