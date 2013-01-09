@@ -20,29 +20,33 @@ App.Router.map (match) ->
 
 App.IndexRoute = Ember.Route.extend
   model: ->
-    sessions = App.Session.find()
-    speakers = App.Speaker.find()
-    days = App.Day.daysData.map (dayData) ->
-      App.Day.createRecord(dayData)
+    if not App.get('loadedData')
+      sessions = App.Session.find()
+      speakers = App.Speaker.find()
+      days = App.Day.daysData.map (dayData) ->
+        App.Day.createRecord(dayData)
 
-    deferred = Ember.Object.createWithMixins(Ember.DeferredMixin)
+      deferred = Ember.Object.createWithMixins(Ember.DeferredMixin)
 
-    # An artifical timeout to ensure all models have loaded.
-    # TODO Replace this with proper lifecycle hooks for querying the models.
-    setTimeout(=>
-      @controllerFor('index').set('days', days)
-      @controllerFor('index').set('sessions', sessions)
-      @controllerFor('index').set('speakers', speakers)
-      deferred.resolve()
-    , 300)
+      # An artifical timeout to ensure all models have loaded.
+      # TODO Replace this with proper lifecycle hooks for querying the models.
+      setTimeout(=>
+        App.set('loadedData', true)
+        @controllerFor('index').set('days', days)
+        @controllerFor('index').set('sessions', sessions)
+        @controllerFor('index').set('speakers', speakers)
+        deferred.resolve()
+      , 300)
 
-    deferred
+      deferred
 
 App.HomeRoute = Ember.Route.extend
   setupController: (controller, model) ->
     controller.set('days', @controllerFor('index').get('days'))
+    controller.set('sessions', @controllerFor('index').get('sessions'))
 
 App.DayRoute = Ember.Route.extend
+  exit: -> App.set('currentDay', null)
   setupController: (controller, model) ->
     # Using global App object is bad to track this state, but it's the only
     # way I've found to do it so far.
@@ -56,7 +60,12 @@ App.DayRoute = Ember.Route.extend
     controller.set('sessions', filteredSessions)
     controller.set('speakers', @controllerFor('index').get('speakers'))
 
+# Without this route we clobber the session by automatically rendering the
+# sessions template
+App.SessionsRoute = Ember.Route.extend
+  renderTemplate: -> false
+
 App.SpeakerRoute = Ember.Route.extend
   model: (params) ->
     speakers = @controllerFor('index').get('speakers')
-    speaker = speakers.findProperty('id', params.speaker_id)
+    speakers.findProperty('id', params.speaker_id)

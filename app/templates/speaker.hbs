@@ -4,7 +4,7 @@
  {{biography}}
 </p>
 <ul class="nav nav-list">
-  <li class="nav-header">Speaking in {{loadedSessions.length}} {{view.sessionsText}}</li>
+  <li class="nav-header">Speaking in {{loadedSessions.length}} {{pluralize loadedSessions}}</li>
   {{#each loadedSessions}}
     <li>
       {{#linkTo "session" this}}

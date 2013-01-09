@@ -1,0 +1,12 @@
+<section class="sessions">
+  <span>
+    <div class="alert alert-info clearfix">
+      <span class="pull-right">
+        Showing <strong>{{sessions.length}}</strong> {{pluralize sessions}}
+      </span>
+    </div>
+  </span>
+  {{#each sessions}}
+    {{view App.SessionView}}
+  {{/each}}
+</section>
