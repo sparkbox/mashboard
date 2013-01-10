@@ -1,7 +1,9 @@
 <div class="container">
   <div class="navbar clearfix">
     <div class="navbar-inner">
-      <a class="brand" href="#">Mashboard</a>
+      {{#linkTo "home" class="brand"}}
+        Mashboard
+      {{/linkTo}}
       <ul class="nav">
         <li>
           {{#linkTo "my_mashboard" class="my-mashboard-button"}}
