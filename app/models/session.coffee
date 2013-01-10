@@ -76,3 +76,7 @@ App.Session = DS.Model.extend
   hasAbstract: (->
     not Ember.isEmpty @get('abstract')
   ).property('abstract')
+
+  isSaved: (->
+    App.get('savedSessions.sessions').contains(this)
+  ).property('App.savedSessions.sessions')

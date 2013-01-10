@@ -23,4 +23,10 @@ App.Store = DS.Store.extend
   adapter: App.CodeMashAdapter.create
     namespace: 'code_masher/data'
 
+if store.enabled
+  App.set('localStorageEnabled', true)
+  App.set('savedSessions', App.SavedSessions.create())
+else
+  App.set('localStorageEnabled', false)
+
 App.initialize()

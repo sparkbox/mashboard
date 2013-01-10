@@ -20,6 +20,7 @@ exports.config =
           'vendor/scripts/ember-latest.js'
           'vendor/scripts/ember-data-latest.js'
           'vendor/scripts/moment.js'
+          'vendor/scripts/store.js'
         ]
 
     stylesheets:

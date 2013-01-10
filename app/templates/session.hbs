@@ -1,49 +1,64 @@
 <div class="well">
-  <span {{bindAttr class=":label difficultyLabelClass"}}>{{difficulty}}</span>
-  {{#if technology}}
-    <span class="label label-inverse">{{technology}}</span>
-  {{/if}}
-  <span class="label label-info">{{eventType}}</span>
-  {{#linkTo "session" this}}
-    <h3>{{title}}</h3>
-  {{/linkTo}}
-  <div>
-    {{#linkTo "speaker" speaker}}
-      <img {{bindAttr src="speaker.avatarURL"}} class="img-circle
-      speaker-avatar-small">
-      <span class="speaker-name-small">{{speakerName}}</span>
-    {{/linkTo}}
-  </div>
-  <table class="table table-condensed">
-    <tbody>
-      <tr>
-        <td>Room</td><td>{{room}}</td>
-      </tr>
-      <tr>
-        <td>Time</td><td>{{dayLabel}} at {{timeLabel}}</td>
-      </tr>
-      {{#if length}}
-        <tr>
-          <td>Length</td><td>{{lengthLabel}}</td>
-        </tr>
+  <div class="row-fluid">
+    <span class="span8">
+      <span {{bindAttr class=":label difficultyLabelClass"}}>{{difficulty}}</span>
+      {{#if technology}}
+        <span class="label label-inverse">{{technology}}</span>
       {{/if}}
-    </tbody>
-  </table>
-  {{#if hasAbstract}}
-    {{#if view.showAbstract}}
-      <p>
-        {{abstract}}
-      </p>
-      <a href="#" {{action "clickedShowAbstract" target="view"}}>
-        hide
+      <span class="label label-info">{{eventType}}</span>
+      {{#linkTo "session" this}}
+        <h3>{{title}}</h3>
+      {{/linkTo}}
+      <div>
+        {{#linkTo "speaker" speaker}}
+          <img {{bindAttr src="speaker.avatarURL"}} class="img-circle
+          speaker-avatar-small">
+          <span class="speaker-name-small">{{speakerName}}</span>
+        {{/linkTo}}
+      </div>
+      <table class="table table-condensed">
+        <tbody>
+          <tr>
+            <td>Room</td><td>{{room}}</td>
+          </tr>
+          <tr>
+            <td>Time</td><td>{{dayLabel}} at {{timeLabel}}</td>
+          </tr>
+          {{#if length}}
+            <tr>
+              <td>Length</td><td>{{lengthLabel}}</td>
+            </tr>
+          {{/if}}
+        </tbody>
+      </table>
+      {{#if hasAbstract}}
+        {{#if view.showAbstract}}
+          <p>
+            {{abstract}}
+          </p>
+          <a href="#" {{action "clickedShowAbstract" target="view"}}>
+            hide
+          </a>
+        {{else}}
+          {{shortenedAbstract}}{{#if hasMoreAbstract}}...{{/if}}
+          {{#if hasMoreAbstract}}
+            <a href="#" {{action "clickedShowAbstract" target="view"}}>
+              more
+            </a>
+          {{/if}}
+        {{/if}}
+      {{/if}}
+    </span>
+    <span class="session-buttons span4">
+      <a href="#" {{action toggleSavedSession target="view"}}
+        {{bindAttr class=":btn isSaved:btn:btn-primary"}}>
+        {{#if isSaved}}
+          Remove from My Mashboard
+        {{else}}
+          Add to My Mashboard
+        {{/if}}
       </a>
-    {{else}}
-      {{shortenedAbstract}}{{#if hasMoreAbstract}}...{{/if}}
-      {{#if hasMoreAbstract}}
-        <a href="#" {{action "clickedShowAbstract" target="view"}}>
-          more
-        </a>
-      {{/if}}
-    {{/if}}
-  {{/if}}
+    </span>
+  </div>
+  <div class="clearfix"></div>
 </div>
