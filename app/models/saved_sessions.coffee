@@ -30,6 +30,8 @@ App.SavedSessions = Ember.Object.extend
   sessions: (->
     savedSessionIds = store.get(@_savedSessionsKey)
     return [] unless savedSessionIds?
-    store.get(@_savedSessionsKey).map (sessionId) ->
-      App.Session.find(sessionId)
+    Ember.ArrayController.create
+      content: store.get(@_savedSessionsKey).map (sessionId) ->
+        App.Session.find(sessionId)
+      sortProperties: ['start']
   ).property('sessionsUpdated')
