@@ -78,4 +78,9 @@ App.SpeakerRoute = Ember.Route.extend
     speakers = @controllerFor('index').get('speakers')
     speakers.findProperty('id', params.speaker_id)
 
-App.MyMashboardRoute = Ember.Route.extend()
+App.MyMashboardRoute = Ember.Route.extend
+  model: ->
+    App.get('savedSessions.sessions')
+
+  setupController: (controller, model) ->
+    controller.set('sessions', model)
