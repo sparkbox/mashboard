@@ -50,6 +50,14 @@ App.IndexRoute = Ember.Route.extend
       deferred
 
 App.HomeRoute = Ember.Route.extend
+  redirect: ->
+    # Redirect to the current day if it's in the list of days
+    now = new Date
+    days = @controllerFor('index').get('days')
+    currentDay = days.find (day) ->
+      day.containsDate(now)
+    if currentDay
+      @transitionTo('day', currentDay)
   setupController: (controller, model) ->
     controller.set('days', @controllerFor('index').get('days'))
 

@@ -1,17 +1,19 @@
 CACHE MANIFEST
-# v4 2012-01-10
+# v9 2012-01-10
 index.html
 images/codemash_bw.png
 images/codemash_bw_medium.png
 javascripts/app.js
 javascripts/vendor.js
 stylesheets/app.css
+data/sessions.json
+data/speakers.json
 
 # Use from network if available
 NETWORK:
 *
-code_masher/data/sessions.json
-code_masher/data/speakers.json
+data/sessions.json
+data/speakers.json
 
 FALLBACK:
 http://avatars.io/twitter/ images/codemash_bw.png
