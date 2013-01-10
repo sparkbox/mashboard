@@ -1,0 +1,7 @@
+{{#if view.isSaved}}
+  {{view App.SessionView}}
+{{else}}
+  <div class="alert alert-warning">
+    Removed {{title}} <a href="#" {{action undoRemoveSession this target="view"}}>undo</a>
+  </div>
+{{/if}}
