@@ -10,13 +10,13 @@
         <h3>{{title}}</h3>
       {{/linkTo}}
       <div>
-        {{#linkTo "speaker" speaker}}
+        {{#linkTo "speaker" speaker class="speaker-profile-thumbnail"}}
           <img {{bindAttr src="speaker.avatarURL"}} class="img-circle
           speaker-avatar-small">
           <span class="speaker-name-small">{{speakerName}}</span>
         {{/linkTo}}
       </div>
-      <table class="table table-condensed">
+      <table class="table table-condensed session-info-table">
         <tbody>
           <tr>
             <td>Room</td><td>{{room}}</td>
@@ -32,24 +32,24 @@
         </tbody>
       </table>
       {{#if hasAbstract}}
+        <p class="session-abstract">
         {{#if view.showAbstract}}
-          <p>
             {{abstract}}
-          </p>
-          <a href="#" {{action "clickedShowAbstract" target="view"}}>
+          <a href="#" class="hide-session-info" {{action "clickedShowAbstract" target="view"}}>
             hide
           </a>
         {{else}}
           {{shortenedAbstract}}{{#if hasMoreAbstract}}...{{/if}}
           {{#if hasMoreAbstract}}
-            <a href="#" {{action "clickedShowAbstract" target="view"}}>
+            <a href="#" class="more-session-info" {{action "clickedShowAbstract" target="view" }}>
               more
             </a>
           {{/if}}
         {{/if}}
+        </p>
       {{/if}}
     </span>
-    <span class="session-buttons span4">
+    <span class="session-buttons span4 mashboard-button">
       <a href="#" {{action toggleSavedSession target="view"}}
         {{bindAttr class=":btn isSaved::btn-primary"}}>
         {{#if isSaved}}
