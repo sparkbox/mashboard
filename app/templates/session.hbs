@@ -16,38 +16,44 @@
           <span class="speaker-name-small">{{speakerName}}</span>
         {{/linkTo}}
       </div>
-      <table class="table table-condensed session-info-table">
-        <tbody>
-          <tr>
-            <td>Room</td><td>{{room}}</td>
-          </tr>
-          <tr>
-            <td>Time</td><td>{{dayLabel}} at {{timeLabel}}</td>
-          </tr>
-          {{#if length}}
+      {{#unless view.titleOnly}}
+        <table class="table table-condensed session-info-table">
+          <tbody>
             <tr>
-              <td>Length</td><td>{{lengthLabel}}</td>
+              <td>Room</td><td>{{room}}</td>
             </tr>
-          {{/if}}
-        </tbody>
-      </table>
-      {{#if hasAbstract}}
-        <p class="session-abstract">
-        {{#if view.showAbstract}}
-            {{abstract}}
-          <a href="#" class="hide-session-info" {{action "clickedShowAbstract" target="view"}}>
-            hide
-          </a>
-        {{else}}
-          {{shortenedAbstract}}{{#if hasMoreAbstract}}...{{/if}}
-          {{#if hasMoreAbstract}}
-            <a href="#" class="more-session-info" {{action "clickedShowAbstract" target="view" }}>
-              more
-            </a>
-          {{/if}}
+            <tr>
+              <td>Time</td><td>{{dayLabel}} at {{timeLabel}}</td>
+            </tr>
+            {{#if length}}
+              <tr>
+                <td>Length</td><td>{{lengthLabel}}</td>
+              </tr>
+            {{/if}}
+          </tbody>
+        </table>
+        {{#if hasAbstract}}
+          <p class="session-abstract">
+            {{#if view.collapseAbstract}}
+              {{#if view.showAbstract}}
+                  {{abstract}}
+                <a href="#" class="hide-session-info" {{action "clickedShowAbstract" target="view"}}>
+                  hide
+                </a>
+              {{else}}
+                {{shortenedAbstract}}{{#if hasMoreAbstract}}...{{/if}}
+                {{#if hasMoreAbstract}}
+                  <a href="#" class="more-session-info" {{action "clickedShowAbstract" target="view" }}>
+                    more
+                  </a>
+                {{/if}}
+              {{/if}}
+            {{else}}
+              {{abstract}}
+            {{/if}}
+          </p>
         {{/if}}
-        </p>
-      {{/if}}
+      {{/unless}}
     </span>
     <span class="session-buttons span4 mashboard-button">
       <a href="#" {{action toggleSavedSession target="view"}}

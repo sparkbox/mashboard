@@ -1,5 +1,5 @@
 {{#if view.isSaved}}
-  {{view App.SessionView}}
+  {{view App.SessionView collapseAbstract=true}}
 {{else}}
   <div class="alert alert-warning">
     Removed {{title}} <a href="#" class="undo-mashboard"{{action undoRemoveSession this target="view"}}>undo</a>
