@@ -1,6 +1,25 @@
 @import 'nib'
 @import 'colors'
 
+@font-face
+  font-family codemash
+  font-style normal
+  src url(../fonts/codemash.eot)
+  src url(../fonts/codemash.eot?#iefix) format(embedded-opentype)
+  src url(../fonts/codemash.svg#codemash) format(svg)
+  src url(../fonts/codemash.woff) format(woff)
+  src url(../fonts/codemash.ttf) format(truetype)
+  font-weight normal
+  font-style normal
+
+[data-icon]:before
+  font-family codemash
+  content attr(data-icon)
+  speak none
+  font-weight normal
+  line-height 1
+  -webkit-font-smoothing antialiased
+
 // ---------------------
 // Speakers
 // ---------------------
@@ -26,6 +45,22 @@
   vertical-align bottom
 
 // ---------------------
+// Nav
+// ---------------------
+
+.navbar
+  width 100%
+  display block
+  background-color #454545
+
+
+.navbar-inner
+  border none
+  border-radius none
+  box-shadow none
+  background-color transparent
+
+// ---------------------
 // Sessions
 // ---------------------
 
@@ -39,3 +74,25 @@
     .btn
       display block
       padding 10px
+
+.day-label
+  font-family: "museo-sans", sans-serif
+
+.day-link
+  color:#4d4d4d
+
+// ---------------------
+// Layout
+// ---------------------
+
+.container
+  @media (max-width: 979px) and (min-width: 768px)
+    width 100%
+  @media (min-width: 940px)
+    width 100%
+  @media (min-width: 1200px)
+    width 100%
+
+body
+  @media (max-width: 767px)
+    padding 0

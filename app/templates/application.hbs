@@ -5,7 +5,8 @@
       <ul class="nav pull-right">
         <li>
           {{#linkTo "my_mashboard"}}
-            My Mashboard
+            <span aria-hidden="true" data-icon="&#xe000;"></span>
+            <span class="screen-reader-text">My Mashboard</span>
             <span class="badge">
               {{App.savedSessions.sessions.length}}
             </span>
