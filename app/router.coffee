@@ -23,30 +23,28 @@ App.Router.map (match) ->
 App.IndexRoute = Ember.Route.extend
   model: ->
     if not App.get('loadedData')
-      sessions = App.Session.find()
-      speakers = App.Speaker.find()
+      sessions = App.Session.find({})
+      speakers = App.Speaker.find({})
       days = App.Day.daysData.map (dayData) ->
         App.Day.createRecord(dayData)
 
       deferred = Ember.Object.createWithMixins(Ember.DeferredMixin)
 
-      # An artifical timeout to ensure all models have loaded.
-      # TODO Replace this with proper lifecycle hooks for querying the models.
-      setTimeout(=>
-        App.set('loadedData', true)
-
+      sessions.then(=>
         # Add the sessions to the day they occur.
         sessions.forEach (session) ->
           days.forEach (day) ->
             if day.containsDate(session.get('start'))
               day.get('sessions').pushObject(session)
+        speakers.then(=>
+          App.set('loadedData', true)
+          @controllerFor('index').set('days', days)
+          @controllerFor('index').set('sessions', sessions)
+          @controllerFor('index').set('speakers', speakers)
 
-        @controllerFor('index').set('days', days)
-        @controllerFor('index').set('sessions', sessions)
-        @controllerFor('index').set('speakers', speakers)
-        deferred.resolve()
-      , 300)
-
+          deferred.resolve(sessions)
+        )
+      )
       deferred
 
 App.HomeRoute = Ember.Route.extend
