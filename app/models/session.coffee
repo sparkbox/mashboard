@@ -79,4 +79,4 @@ App.Session = DS.Model.extend
 
   isSaved: (->
     App.get('savedSessions.sessions').contains(this)
-  ).property('App.savedSessions.sessions')
+  ).property('App.savedSessions.sessions', 'App.savedSessions.sessionsUpdated')

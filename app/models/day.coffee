@@ -16,11 +16,9 @@ App.Day = DS.Model.extend
 
   containsDate: (date) ->
     momentDate = @get('momentDate')
-    startOfDay = momentDate.clone().hours(0).minutes(0).seconds(0)
-    endOfDay = momentDate.clone().hours(23).minutes(59).seconds(59)
-
-    unixTime = moment(date).unix()
-    unixTime > startOfDay.unix() and unixTime < endOfDay.unix()
+    moment(date).year() is momentDate.year() and
+    moment(date).month() is momentDate.month() and
+    moment(date).day() is momentDate.day()
 
   hours: (->
     hours = @get('sessions').reduce((hours, session) ->
