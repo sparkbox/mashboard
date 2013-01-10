@@ -10,6 +10,10 @@ App.Day = DS.Model.extend
     @get('momentDate').format('dddd')
   ).property('date')
 
+  shortWeekDayLabel: (->
+    @get('momentDate').format('ddd')
+  ).property('date')
+
   containsDate: (date) ->
     momentDate = @get('momentDate')
     startOfDay = momentDate.clone().hours(0).minutes(0).seconds(0)

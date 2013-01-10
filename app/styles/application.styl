@@ -1,6 +1,18 @@
 @import 'nib'
 @import 'colors'
 
+@import url("http://fast.fonts.com/t/1.css?apiType=css&projectid=6e209251-022a-4233-966f-bbe10cb47dda");
+@font-face{
+font-family:"PMNCaeciliaW01-55Roman";
+src:url("../fonts/e9938f19-f9be-4b47-9f5a-c3441c7b84a2.eot?#iefix");
+src:url("../fonts/e9938f19-f9be-4b47-9f5a-c3441c7b84a2.eot?#iefix") format("eot"),url("../fonts/57d0d8b3-dd92-4639-bc73-f54734f54f3d.woff") format("woff"),url("../fonts/e8f97b23-e117-4d0a-abc8-4a6112d9794f.ttf") format("truetype"),url("../fonts/f97046a6-1405-40e5-80e8-282eccce10b8.svg#f97046a6-1405-40e5-80e8-282eccce10b8") format("svg");
+}
+@font-face{
+font-family:"Museo Sans W01 500";
+src:url("../fonts/a29947fd-0c53-492b-b2f4-399b01153b30.eot?#iefix");
+src:url("../fonts/a29947fd-0c53-492b-b2f4-399b01153b30.eot?#iefix") format("eot"),url("../fonts/d42dd843-62b0-4623-8855-d5882512c3c9.woff") format("woff"),url("../fonts/6d532ccb-086c-4000-bab2-5d16862fcf01.ttf") format("truetype"),url("../fonts/f56b7407-f97b-4cb3-9ce6-4e13065eec93.svg#f56b7407-f97b-4cb3-9ce6-4e13065eec93") format("svg");
+}
+
 @font-face
   font-family codemash
   font-style normal
@@ -19,6 +31,9 @@
   font-weight normal
   line-height 1
   -webkit-font-smoothing antialiased
+
+body
+  background-color #ededed
 
 // ---------------------
 // Speakers
@@ -48,17 +63,58 @@
 // Nav
 // ---------------------
 
+.nav
+  display block
+  width 100%
+  padding-bottom 1em
+  @media (min-width: 330px)
+    width 22em
+    margin 0 auto
+  @media (min-width: 500px)
+    width 31em
+
+.span-12 .nav-pills > li
+  float none
+  width 10em
+  margin 0 auto
+
 .navbar
   width 100%
   display block
-  background-color #454545
+  padding-bottom 1em
+  background-color #bfbfbf
 
+.navbar .nav
+  width: 202px
+  margin: 0 auto
+  float none
+  @media (min-width:659px)
+    float right
+
+.navbar .nav > li > a
+  text-shadow none
+  color black
+  font-size 1.1em
+  [data-icon]:before
+    color white
+
+.nav > li > a:hover
+  background-color primaryOrange
+  color white
+
+.nav > li > a.active
+  background-color primaryOrange
+
+.nav > li > a.active:hover
+  background-color primaryOrange
 
 .navbar-inner
   border none
   border-radius none
   box-shadow none
   background-color transparent
+  background-image none
+  padding-top .5em
 
 // ---------------------
 // Sessions
@@ -76,7 +132,7 @@
       padding 10px
 
 .day-label
-  font-family: "museo-sans", sans-serif
+  font-family:"Museo Sans W01 500",sans-serif
 
 .day-link
   color:#4d4d4d
@@ -96,3 +152,72 @@
 body
   @media (max-width: 767px)
     padding 0
+
+.long-day
+  display none
+  @media (min-width: 500px)
+    display block
+
+.short-day
+  @media (min-width: 500px)
+    display none
+
+.nav-pills > li
+  float none
+  text-align center
+  @media (min-width: 300px)
+    float left
+    text-align left
+// ---------------------
+// Theme
+// ---------------------
+
+.navbar .brand
+  float none
+  text-indent -999em
+  background-image url(../images/logo.png)
+  background-repeat no-repeat
+  display block
+  height 36px
+  width 200px
+  margin 0 auto
+  @media (min-width:659px)
+    margin: 0
+    margin-left 1em
+    float left
+
+.session-detail
+  background-color white
+
+.well
+  background-color transparent
+
+h1, h2, h3, h4, h5, h6
+  font-family:"PMNCaeciliaW01-55Roman", serif
+
+.alert
+  background-color white
+  border none
+  text-align center
+  color primaryOrange
+
+.btn-primary
+  background-color primaryOrange
+  background-image none
+
+.btn:hover
+  background-color primaryOrange
+  -webkit-transition none
+  background-image none
+  color white
+  text-shadow none
+
+.session-title
+  color black
+  &:hover
+    color primaryOrange
+  &:visited
+    color black
+
+.session-detail .label
+  text-shadow none

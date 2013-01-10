@@ -1,6 +1,4 @@
 {{#linkTo "day" this classNames="day-link"}}
-  {{weekDayLabel}}
-  <span class="badge">
-    {{sessions.length}}
-  </span>
+  <span class="short-day">{{shortWeekDayLabel}} ({{sessions.length}})</span>
+  <span class="long-day">{{weekDayLabel}} ({{sessions.length}})</span>
 {{/linkTo}}

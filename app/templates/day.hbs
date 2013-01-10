@@ -1,16 +1,8 @@
-<div class="alert alert-info">
-  <span class="pull-right">
-    {{sessions.length}} {{pluralize sessions}} on {{weekDayLabel}}
-  </span>
-  <div class="clearfix"></div>
-</div>
 {{#each hours}}
   <div class="hour">
     <div class="alert">
-      <strong>
         {{sessions.length}} {{pluralize sessions lowerCase=true}} starting at
         {{shortTimeLabel}}
-    </strong>
     </div>
   </div>
   {{view App.SessionsView}}

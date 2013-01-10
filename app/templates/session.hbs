@@ -1,12 +1,12 @@
 <div class="well">
   <div class="row-fluid">
     <span class="span8">
-      <span {{bindAttr class=":label difficultyLabelClass"}}>{{difficulty}}</span>
+      <span class="label">{{difficulty}}</span>
       {{#if technology}}
-        <span class="label label-inverse">{{technology}}</span>
+        <span class="label">{{technology}}</span>
       {{/if}}
-      <span class="label label-info">{{eventType}}</span>
-      {{#linkTo "session" this}}
+      <span class="label">{{eventType}}</span>
+      {{#linkTo "session" this class="session-title"}}
         <h3>{{title}}</h3>
       {{/linkTo}}
       <div>
@@ -53,9 +53,11 @@
       <a href="#" {{action toggleSavedSession target="view"}}
         {{bindAttr class=":btn isSaved::btn-primary"}}>
         {{#if isSaved}}
-          Remove from My Mashboard
+          <span aria-hidden="true" data-icon="&#xe000;"></span>
+          <span class="screen-reader-text">Remove from My Mashboard</span>
         {{else}}
-          Add to My Mashboard
+          <span aria-hidden="true" data-icon="&#xe000;"></span>
+          <span class="screen-reader-text">Add to My Mashboard</span>
         {{/if}}
       </a>
     </span>
