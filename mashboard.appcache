@@ -10,6 +10,19 @@ javascripts/vendor.js
 stylesheets/app.css
 data/sessions.json
 data/speakers.json
+fonts/57d0d8b3-dd92-4639-bc73-f54734f54f3d.woff
+fonts/6d532ccb-086c-4000-bab2-5d16862fcf01.ttf
+fonts/a29947fd-0c53-492b-b2f4-399b01153b30.eot
+fonts/codemash.dev.svg
+fonts/codemash.eot
+fonts/codemash.svg
+fonts/codemash.ttf
+fonts/codemash.woff
+fonts/d42dd843-62b0-4623-8855-d5882512c3c9.woff
+fonts/e8f97b23-e117-4d0a-abc8-4a6112d9794f.ttf
+fonts/e9938f19-f9be-4b47-9f5a-c3441c7b84a2.eot
+fonts/f56b7407-f97b-4cb3-9ce6-4e13065eec93.svg
+fonts/f97046a6-1405-40e5-80e8-282eccce10b8.svg
 
 # Use from network if available
 NETWORK:
