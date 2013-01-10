@@ -1,8 +1,10 @@
 CACHE MANIFEST
-# v17 2012-01-10
+# v18 2012-01-10
 index.html
 images/codemash_bw.png
 images/codemash_bw_medium.png
+images/logo-2x.png
+images/logo.png
 javascripts/app.js
 javascripts/vendor.js
 stylesheets/app.css
