@@ -21,7 +21,7 @@ folderOrder.forEach (folder) ->
 App.Store = DS.Store.extend
   revision: 11
   adapter: App.CodeMashAdapter.create
-    namespace: 'code_masher/data'
+    namespace: 'mashboard/data'
 
 if store.enabled
   App.set('localStorageEnabled', true)
