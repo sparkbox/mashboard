@@ -10,7 +10,7 @@ Handlebars templates, and Stylus stylesheets.
 ### Depdendancies
 
 * [Node](http://nodejs.org/) `brew install node`
-* [Brunch](http://brunch.io) `npm install -g brunch`
+* [Brunch 1.4.5](http://brunch.io) `npm install -g brunch@1.4.5`
 
 ### Setup Brunch
 
