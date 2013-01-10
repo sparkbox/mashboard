@@ -1,11 +1,3 @@
 {{#each days}}
-  <div class="alert alert-info">
-    <h3>
-      {{sessions.length}} {{pluralize sessions lowerCase=true}} on
-      {{#linkTo "day" this}}
-        {{weekDayLabel}}
-      {{/linkTo}}
-    </h3>
-  </div>
   {{view App.DayView}}
 {{/each}}
