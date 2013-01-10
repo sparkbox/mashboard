@@ -4,11 +4,12 @@
       <a class="brand" href="#">Mashboard</a>
       <ul class="nav pull-right">
         <li>
-          <a href="#">My Mashboard 
+          {{#linkTo "my_mashboard"}}
+            My Mashboard
             <span class="badge">
               {{App.savedSessions.sessions.length}}
             </span>
-          </a>
+          {{/linkTo}}
         </li>
       </ul>
     </div>

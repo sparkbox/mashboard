@@ -3,6 +3,8 @@ App.Router.map (match) ->
   match('/').to('index', (match) ->
     match('/').to('home')
 
+    match('/my_mashboard').to('my_mashboard')
+
     match('/days').to('days', (match) ->
       match('/:day_id').to('day')
     )
@@ -69,3 +71,9 @@ App.SpeakerRoute = Ember.Route.extend
   model: (params) ->
     speakers = @controllerFor('index').get('speakers')
     speakers.findProperty('id', params.speaker_id)
+
+App.MyMashboardRoute = Ember.Route.extend
+  model: -> App.get('savedSessions.sessions')
+
+  setupController: (controller, model) ->
+    controller.set('sessions', model)
