@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v11 2012-01-10
+# v12 2012-01-10
 index.html
 images/codemash_bw.png
 images/codemash_bw_medium.png
@@ -12,6 +12,9 @@ data/speakers.json
 # Use from network if available
 NETWORK:
 *
+javascripts/app.js
+javascripts/vendor.js
+stylesheets/app.css
 data/sessions.json
 data/speakers.json
 
