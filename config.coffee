@@ -16,7 +16,7 @@ exports.config =
         before: [
           'vendor/scripts/console-helper.js'
           'vendor/scripts/jquery-1.8.3.js'
-          'vendor/scripts/handlebars-1.0.rc.1.js'
+          'vendor/scripts/handlebars-1.0.rc.2.js'
           'vendor/scripts/ember-latest.js'
           'vendor/scripts/ember-data-latest.js'
           'vendor/scripts/moment.js'
@@ -35,7 +35,7 @@ exports.config =
     templates:
       precompile: true
       defaultExtension: 'hbs'
-      stripRootFolder: true
+      root: 'templates/'
       joinTo: 'javascripts/app.js' : /^app/
 
   modules:

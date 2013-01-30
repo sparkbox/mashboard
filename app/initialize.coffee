@@ -29,4 +29,5 @@ if store.enabled
 else
   App.set('localStorageEnabled', false)
 
+require 'initializers'
 App.initialize()

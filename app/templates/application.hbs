@@ -1,12 +1,12 @@
 <div class="container">
   <div class="navbar clearfix">
     <div class="navbar-inner">
-      {{#linkTo "home" class="brand"}}
+      {{#linkTo index class="brand"}}
         Mashboard
       {{/linkTo}}
       <ul class="nav">
         <li>
-          {{#linkTo "my_mashboard" class="my-mashboard-button"}}
+          {{#linkTo my_mashboard class="my-mashboard-button"}}
             <span aria-hidden="true" data-icon="&#xe000;"></span>
             <span class="screen-reader-text">My Mashboard</span>
             <span class="badge">
@@ -17,6 +17,16 @@
       </ul>
     </div>
   </div>
+
+  <section class="row-fluid row-fluid-first">
+    <div class="span12">
+      <ul class="nav nav-pills">
+      {{#each days}}
+        {{view App.DayListItemView contentBinding="this" tagName="li" classNames="day-label"}}
+      {{/each}}
+      </ul>
+    </div>
+  </section>
 
   {{outlet}}
 

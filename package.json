@@ -20,7 +20,7 @@
     "css-brunch": ">= 1.0 < 1.5",
     "uglify-js-brunch": ">= 1.0 < 1.5",
     "clean-css-brunch": ">= 1.0 < 1.5",
-    "ember-handlebars-brunch": "git://github.com/mutewinter/ember-handlebars-brunch.git",
+    "ember-handlebars-brunch": "git+ssh://git@github.com:icholy/ember-handlebars-brunch.git",
     "auto-reload-brunch": "> 1.0 < 1.5",
     "stylus-brunch": ">= 1.0 < 1.5"
   },
