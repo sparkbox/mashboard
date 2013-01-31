@@ -1,8 +1,8 @@
 {{#each hours}}
   <div class="hour">
     <div class="alert">
-        {{sessions.length}} {{pluralize sessions lowerCase=true}} starting at
-        {{shortTimeLabel}}
+      {{sessions.length}} {{pluralize sessions lowerCase=true}} starting at
+      {{shortTimeLabel}}
     </div>
   </div>
   {{view App.SessionsView titleOnly=true}}
