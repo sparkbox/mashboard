@@ -4,6 +4,7 @@
 # Defining App globally before the rest of the requires ensures we can use it
 # in those files explicitly requiring it.
 window.App = Ember.Application.create()
+require 'initializers'
 
 # The router doesn't live in a folder, so we require it explicitly.
 require 'router'
@@ -29,5 +30,4 @@ if store.enabled
 else
   App.set('localStorageEnabled', false)
 
-require 'initializers'
 App.initialize()

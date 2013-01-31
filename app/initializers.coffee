@@ -2,13 +2,11 @@ Ember.Application.initializer
   name: 'setupData'
 
   initialize: (container, application) ->
-    console.log 'initialize'
+    App.deferReadiness()
     sessions = App.Session.find({})
     speakers = App.Speaker.find({})
     days = App.Day.daysData.map (dayData) ->
       App.Day.createRecord(dayData)
-
-    deferred = Ember.Object.createWithMixins(Ember.DeferredMixin)
 
     sessions.then(=>
       # Add the sessions to the day they occur.
@@ -17,7 +15,6 @@ Ember.Application.initializer
           if day.containsDate(session.get('start'))
             day.get('sessions').pushObject(session)
       speakers.then(=>
-
         container.optionsForType('days', instantiate: false, singleton: true)
         container.register('days', 'all', days)
         container.optionsForType('sessions', instantiate: false, singleton: true)
@@ -25,10 +22,9 @@ Ember.Application.initializer
         container.optionsForType('speakers', instantiate: false, singleton: true)
         container.register('speakers', 'all', speakers)
 
-        deferred.resolve(sessions)
+        App.advanceReadiness()
       )
     )
-    deferred
 
 Ember.Application.initializer
   name: 'injectData'
