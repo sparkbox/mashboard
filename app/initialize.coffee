@@ -3,7 +3,7 @@
 
 # Defining App globally before the rest of the requires ensures we can use it
 # in those files explicitly requiring it.
-window.App = require('app')
+window.App = Ember.Application.create()
 
 # The router doesn't live in a folder, so we require it explicitly.
 require 'router'
