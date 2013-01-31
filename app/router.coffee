@@ -1,7 +1,6 @@
 # Public: The main application router.
 App.Router.map ->
   @route 'my_mashboard'
-  @route 'all'
 
   @resource('days')
   @resource('day', path: '/days/:day_id')
@@ -9,10 +8,6 @@ App.Router.map ->
   @resource('session', path: '/sessions/:session_id')
   @resource('speakers')
   @resource('speaker', path: '/speakers/:speaker_id')
-
-App.AllRoute = Ember.Route.extend
-  setupController: (controller) ->
-    controller.set('days', @controllerFor('application').get('days'))
 
 App.IndexRoute = Ember.Route.extend
   redirect: ->
@@ -25,7 +20,7 @@ App.IndexRoute = Ember.Route.extend
       App.set('redirected', true)
       @transitionTo('day', currentDay)
     else
-      @transitionTo('all')
+      @transitionTo('sessions')
 
   setupController: (controller, model) ->
     controller.set('days', @controllerFor('application').get('days'))
@@ -51,3 +46,12 @@ App.MyMashboardRoute = Ember.Route.extend
 
   setupController: (controller, model) ->
     controller.set('sessions', model)
+
+App.SessionsRoute = Ember.Route.extend
+  setupController: (controller) ->
+    days = @controllerFor('application').get('days')
+    sessions = days.reduce((sessions, day) ->
+      sessions.pushObjects(day.get('sessions').toArray())
+      sessions
+    , [])
+    controller.set('sessions', sessions)
