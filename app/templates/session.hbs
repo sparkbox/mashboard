@@ -6,9 +6,13 @@
         <span class="label">{{technology}}</span>
       {{/if}}
       <span class="label">{{eventType}}</span>
-      {{#linkTo session this class="session-title"}}
-        <h3 class="session-title">{{title}}</h3>
-      {{/linkTo}}
+      {{#if view.listPage}}
+        {{#linkTo session this class="session-title"}}
+          <h3>{{title}}</h3>
+        {{/linkTo}}
+      {{else}}
+        <h3>{{title}}</h3>
+      {{/if}}
       <div>
         {{#linkTo speaker speaker class="speaker-profile-thumbnail"}}
           <img {{bindAttr src="speaker.avatarURL"}} class="img-circle
