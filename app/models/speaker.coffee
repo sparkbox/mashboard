@@ -1,3 +1,5 @@
+TWITTER_API_URL = 'https://api.twitter.com/1'
+
 App.Speaker = DS.Model.extend
   name: DS.attr('string')
   biography: DS.attr('string')
@@ -17,14 +19,14 @@ App.Speaker = DS.Model.extend
 
   avatarURL: (->
     if @get('hasTwitterHandle')
-      "http://avatars.io/twitter/#{@get('twitterUserName')}"
+      "#{TWITTER_API_URL}/users/profile_image?screen_name=#{@get('twitterUserName')}"
     else
       "images/codemash_bw.png"
   ).property('twitterUserName', 'hasTwitterHandle')
 
   mediumAvatarURL: (->
     if @get('hasTwitterHandle')
-      "http://avatars.io/twitter/#{@get('twitterUserName')}?size=medium"
+      "#{@get('avatarURL')}&size=bigger"
     else
       "images/codemash_bw_medium.png"
   ).property('twitterUserName', 'hasTwitterHandle')
